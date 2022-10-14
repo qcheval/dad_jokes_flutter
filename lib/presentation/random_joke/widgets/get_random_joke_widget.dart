@@ -2,8 +2,6 @@ import 'package:dad_jokes_flutter/presentation/random_joke/widgets/joke_widget.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dad_jokes_flutter/application/random_joke/random_joke_bloc.dart';
-import 'package:dad_jokes_flutter/presentation/core/widgets/custom_button.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GetRandomJokeWidget extends StatelessWidget {
   const GetRandomJokeWidget({
@@ -16,16 +14,18 @@ class GetRandomJokeWidget extends StatelessWidget {
       builder: (context, state) {
         switch (state.status) {
           case RandomJokeStatus.initial:
-            WidgetsBinding.instance.addPostFrameCallback(
-                    (_) =>
+            WidgetsBinding.instance.addPostFrameCallback((_) =>
                 context.read<RandomJokeBloc>()
                   ..add(const RandomJokeEvent.onRandomJokeRequested()));
             return _buildLoader();
           case RandomJokeStatus.success:
-            return JokeWidget(joke: state.jokeViewModel!, onClick: () {
-              context.read<RandomJokeBloc>().add(
-                  const RandomJokeEvent.onRandomJokeRequested());
-            });
+            return JokeWidget(
+                joke: state.jokeViewModel!,
+                onClick: () {
+                  context
+                      .read<RandomJokeBloc>()
+                      .add(const RandomJokeEvent.onRandomJokeRequested());
+                });
           case RandomJokeStatus.loading:
             return _buildLoader();
           case RandomJokeStatus.error:
