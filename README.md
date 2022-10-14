@@ -1,7 +1,10 @@
 # dad_jokes_flutter
 
-Let's read some dad jokes
+## Let's read some dad jokes
+
+
 ![Project Icon](./assets/images/smile.png)
+
 ## Why this project?
 
 This project aims to implement a simple, yet clear, example of BLoc/Clean architecture using flutter
