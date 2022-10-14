@@ -1,16 +1,9 @@
 # dad_jokes_flutter
 
 Let's read some dad jokes
+![Project Icon](./assets/images/smile.svg)
+## Why this project?
 
-## Getting Started
+This project aims to implement a simple, yet clear, example of BLoc/Clean architecture using flutter
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This implementation *is not the truth*. It is only my vision of clean architecture using BLoc. Feel free to comment, enhance and make this code better.
