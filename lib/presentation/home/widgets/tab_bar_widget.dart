@@ -1,9 +1,11 @@
+import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dad_jokes_flutter/application/home/home_bloc.dart';
 import 'package:dad_jokes_flutter/application/home/tab_index.dart';
 import 'package:dad_jokes_flutter/presentation/joke_list/joke_list_widget.dart';
 import 'package:dad_jokes_flutter/presentation/random_joke/random_joke_widget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -13,6 +15,7 @@ class TabBarWidget extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
+              leading: Padding(padding: EdgeInsets.all(8), child: SvgPicture.asset(HomeAssetProvider.homeIconAsset)),
               title: Text(
                 "ICanHasDadJokes",
                 style: GoogleFonts.lato(),
