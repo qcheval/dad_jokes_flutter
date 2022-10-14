@@ -18,7 +18,7 @@ class ApiService {
     dio.options.baseUrl = baseUrl;
     dio.options.connectTimeout = 5000; //5s
     dio.options.receiveTimeout = 3000;
-    dio.options.headers.addAll({"Accept": "application/json"});
+    dio.options.headers.addAll({"Accept": "application/json", "User-Agent": "Flutter iCanHazDadJokes (https://github.com/qcheval/dad_jokes_flutter)"});
   }
 
   Future<Either<ValueFailure, JokeDto>> getRandomJoke() async {

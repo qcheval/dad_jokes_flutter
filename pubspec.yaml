@@ -36,6 +36,7 @@ dependencies:
   json_annotation: ^4.7.0
   json_serializable: ^6.1.4
   dartz: ^0.10.1
+  lottie: ^1.4.3
 
 dev_dependencies:
   flutter_test:
@@ -53,3 +54,4 @@ flutter:
 
   assets:
     - assets/images/smile.svg
+    - assets/animations/error_animation.json

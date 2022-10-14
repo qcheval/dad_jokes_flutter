@@ -4,6 +4,7 @@ import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ErrorCardWidget extends StatelessWidget {
@@ -24,11 +25,8 @@ class ErrorCardWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SvgPicture.asset(
-                HomeAssetProvider.homeIconAsset,
-                width: 50.w,
-                height: 50.w,
-              ),
+              Lottie.asset("assets/animations/error_animation.json",
+                  width: 50.w, height: 50.w),
               Padding(
                 padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: Text(
@@ -40,7 +38,8 @@ class ErrorCardWidget extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: CustomButton(title: StringProvider.retry, onClick: retry),
+                child:
+                    CustomButton(title: StringProvider.retry, onClick: retry),
               )
             ],
           ),
