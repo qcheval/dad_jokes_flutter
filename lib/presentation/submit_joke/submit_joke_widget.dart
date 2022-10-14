@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/presentation/core/widgets/error_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
@@ -8,11 +9,6 @@ class SubmitJokeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Text(
-          "SJ",
-          style: TextStyle(fontSize: 18.sp),
-        ),
-    );
+    return ErrorCardWidget(retry: () {});
   }
 }

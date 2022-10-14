@@ -25,7 +25,7 @@ class JokeListBloc extends Bloc<JokeListEvent, JokeListState> {
   JokeListBloc(this.iGetJokeList) : super(JokeListState.initial()) {
     on<JokeListEvent>((event, emit) async {
       emit(state.copyWith(status: JokeListStatus.loading, jokeList: _jokeList));
-      await Future.delayed(Duration(seconds: 1));
+
       await event.map(onJokeListRequested: (onJokeListRequested) async {
         Either<ValueFailure, List<JokeEntity>> listResult =
             await iGetJokeList.getJokeList(++_page, maxResults);
