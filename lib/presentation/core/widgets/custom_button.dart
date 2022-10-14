@@ -4,7 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 const double buttonHeight = 10.0;
-const double buttonRadius = 18.0;
+const double buttonRadius = 15.0;
 const int buttonFontSize = 18;
 
 class CustomButton extends StatelessWidget {
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-          minimumSize: Size(80.w, 8.h),
+          minimumSize: Size(90.w, 8.h),
           backgroundColor: Colors.green,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(buttonRadius))),
       onPressed: onClick,

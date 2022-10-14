@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dad_jokes_flutter/presentation/home/widgets/home_icon.dart';
@@ -17,7 +18,8 @@ class HomeTitle extends StatelessWidget {
         SizedBox(
           height: 4.h,
         ),
-        Text("icanhazdadjoke", style: GoogleFonts.lato(fontSize: titleFontSize.sp))
+        Text(StringProvider.appName,
+            style: GoogleFonts.lato(fontSize: titleFontSize.sp))
       ],
     );
   }

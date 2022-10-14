@@ -22,9 +22,8 @@ class ApiService {
   }
 
   Future<Either<ValueFailure, JokeDto>> getRandomJoke() async {
-    Response randomJokeResponse = await dio.get("/");
-
     try {
+      Response randomJokeResponse = await dio.get("/");
       switch (randomJokeResponse.statusCode) {
         case httpSuccess:
           return Right(JokeDto.fromJson(randomJokeResponse.data));
@@ -39,9 +38,8 @@ class ApiService {
   }
 
   Future<Either<ValueFailure, List<JokeDto>>> getJokeList(int page, int limit) async {
-    Response randomJokeResponse = await dio.get("/search?page=$page&limit=$limit");
-
     try {
+      Response randomJokeResponse = await dio.get("/search?page=$page&limit=$limit");
       switch (randomJokeResponse.statusCode) {
         case httpSuccess:
           JokeListDto jokeListDto = JokeListDto.fromJson(randomJokeResponse.data);

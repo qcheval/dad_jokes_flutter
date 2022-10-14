@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -26,7 +27,7 @@ class JokeLoadingWidget extends StatelessWidget {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 4.h),
-                Text("Loading more jokes!")
+                Text(StringProvider.loading)
               ],),
           ),
         ),

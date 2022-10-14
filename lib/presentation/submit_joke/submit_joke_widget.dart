@@ -8,16 +8,11 @@ class SubmitJokeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text("RandomJoke"),
-          leading: SvgPicture.asset(HomeAssetProvider.homeIconAsset, semanticsLabel: "Smile")),
-      body: Center(
+    return Center(
         child: Text(
           "SJ",
           style: TextStyle(fontSize: 18.sp),
         ),
-      ),
     );
   }
 }

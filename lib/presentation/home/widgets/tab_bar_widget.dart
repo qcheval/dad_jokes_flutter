@@ -1,4 +1,6 @@
 import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
+import 'package:dad_jokes_flutter/presentation/string_provider.dart';
+import 'package:dad_jokes_flutter/presentation/submit_joke/submit_joke_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dad_jokes_flutter/application/home/home_bloc.dart';
@@ -17,7 +19,7 @@ class TabBarWidget extends StatelessWidget {
             appBar: AppBar(
               leading: Padding(padding: EdgeInsets.all(8), child: SvgPicture.asset(HomeAssetProvider.homeIconAsset)),
               title: Text(
-                "ICanHasDadJokes",
+                StringProvider.appName,
                 style: GoogleFonts.lato(),
               ),
             ),
@@ -25,12 +27,12 @@ class TabBarWidget extends StatelessWidget {
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                       icon: Icon(Icons.change_circle_sharp),
-                      label: "Random Joke"),
+                      label: StringProvider.randomJoke),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.format_list_bulleted),
-                      label: "Joke List"),
+                      label: StringProvider.jokeList),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.post_add), label: "Submit Joke")
+                      icon: Icon(Icons.post_add), label: StringProvider.submitJoke)
                 ],
                 onTap: (index) {
                   _onItemTapped(context, index);
@@ -53,7 +55,7 @@ class TabBarWidget extends StatelessWidget {
       case TabIndex.list:
         return JokeListWidget();
       case TabIndex.submit:
-        return Center();
+        return SubmitJokeWidget();
     }
   }
 }
