@@ -4,6 +4,7 @@ import 'package:dad_jokes_flutter/application/home/home_bloc.dart';
 import 'package:dad_jokes_flutter/application/home/tab_index.dart';
 import 'package:dad_jokes_flutter/presentation/joke_list/joke_list_widget.dart';
 import 'package:dad_jokes_flutter/presentation/random_joke/random_joke_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TabBarWidget extends StatelessWidget {
   @override
@@ -12,13 +13,21 @@ class TabBarWidget extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text("test"),
+              title: Text(
+                "ICanHasDadJokes",
+                style: GoogleFonts.lato(),
+              ),
             ),
             bottomNavigationBar: BottomNavigationBar(
                 items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(icon: Icon(Icons.change_circle_sharp), label: "Random Joke"),
-                  BottomNavigationBarItem(icon: Icon(Icons.format_list_bulleted), label: "Joke List"),
-                  BottomNavigationBarItem(icon: Icon(Icons.post_add), label: "Submit Joke")
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.change_circle_sharp),
+                      label: "Random Joke"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.format_list_bulleted),
+                      label: "Joke List"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.post_add), label: "Submit Joke")
                 ],
                 onTap: (index) {
                   _onItemTapped(context, index);

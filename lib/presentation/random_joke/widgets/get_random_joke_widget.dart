@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/presentation/random_joke/widgets/joke_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dad_jokes_flutter/application/random_joke/random_joke_bloc.dart';
@@ -16,10 +17,15 @@ class GetRandomJokeWidget extends StatelessWidget {
         switch (state.status) {
           case RandomJokeStatus.initial:
             WidgetsBinding.instance.addPostFrameCallback(
-                (_) => context.read<RandomJokeBloc>()..add(const RandomJokeEvent.onRandomJokeRequested()));
+                    (_) =>
+                context.read<RandomJokeBloc>()
+                  ..add(const RandomJokeEvent.onRandomJokeRequested()));
             return _buildLoader();
           case RandomJokeStatus.success:
-            return _buildRandomJokeWidget(context, state);
+            return JokeWidget(joke: state.jokeViewModel!, onClick: () {
+              context.read<RandomJokeBloc>().add(
+                  const RandomJokeEvent.onRandomJokeRequested());
+            });
           case RandomJokeStatus.loading:
             return _buildLoader();
           case RandomJokeStatus.error:
@@ -37,24 +43,6 @@ class GetRandomJokeWidget extends StatelessWidget {
         color: Colors.white,
         child: const Center(child: CircularProgressIndicator()),
       ),
-    );
-  }
-
-  Widget _buildRandomJokeWidget(BuildContext context, RandomJokeState randomJokeState) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Center(
-          child: Text(randomJokeState.jokeViewModel?.text ?? ""),
-        ),
-        SizedBox(height: 10.h),
-        CustomButton(
-            title: "Get Joke",
-            onClick: () {
-              context.read<RandomJokeBloc>().add(const RandomJokeEvent.onRandomJokeRequested());
-            })
-      ],
     );
   }
 }

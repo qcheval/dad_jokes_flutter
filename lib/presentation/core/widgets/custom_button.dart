@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-          minimumSize: Size(40.w, 10.h),
+          minimumSize: Size(80.w, 8.h),
           backgroundColor: Colors.green,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(buttonRadius))),
       onPressed: onClick,
