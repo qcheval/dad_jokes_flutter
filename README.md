@@ -1,16 +1,18 @@
 # dad_jokes_flutter
 
-Let's read some dad jokes
+## Let's read some dad jokes
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![Project Icon](./assets/images/smile.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project uses the open API [ICanHasDadJokes](https://icanhazdadjoke.com/api#search-for-dad-jokes) written and is maintained by Brett Langdon.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The logo is by Original by [User:East718](https://en.wikipedia.org/wiki/User:User:East718), SVG conversion: This vector image was created with Inkscape by Howcheng, and then manually edited by [Giro720](https://commons.wikimedia.org/wiki/User:Giro720). (Own work) [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via [Wikimedia Commons](https://commons.wikimedia.org/).
+
+
+## Why this project?
+
+This project aims to implement a simple, yet clear, example of BLoc/Clean architecture using flutter
+
+This implementation *is not the truth*. It is only my vision of clean architecture using BLoc. Feel free to comment, enhance and make this code better.
