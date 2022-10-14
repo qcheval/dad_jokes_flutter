@@ -10,9 +10,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'application/home/home_bloc.dart' as _i4;
-import 'application/random_joke/random_joke_bloc.dart' as _i8;
+import 'application/joke_list/joke_list_bloc.dart' as _i8;
+import 'application/random_joke/random_joke_bloc.dart' as _i9;
 import 'data/core/api_service.dart' as _i5;
-import 'di/data_module.dart' as _i9;
+import 'di/data_module.dart' as _i10;
 import 'domain/joke_list/i_get_joke_list.dart' as _i6;
 import 'domain/random_joke/i_get_random_joke.dart'
     as _i7; // ignore_for_file: unnecessary_lambdas
@@ -37,11 +38,10 @@ _i1.GetIt $initGetIt(
       () => dataModule.getJokeList(get<_i5.ApiService>()));
   gh.lazySingleton<_i7.IGetRandomJoke>(
       () => dataModule.getRandomJoke(get<_i5.ApiService>()));
-  gh.factory<_i8.RandomJokeBloc>(() => _i8.RandomJokeBloc(
-        get<_i7.IGetRandomJoke>(),
-        get<_i6.IGetJokeList>(),
-      ));
+  gh.factory<_i8.JokeListBloc>(() => _i8.JokeListBloc(get<_i6.IGetJokeList>()));
+  gh.factory<_i9.RandomJokeBloc>(
+      () => _i9.RandomJokeBloc(get<_i7.IGetRandomJoke>()));
   return get;
 }
 
-class _$DataModule extends _i9.DataModule {}
+class _$DataModule extends _i10.DataModule {}
