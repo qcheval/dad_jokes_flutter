@@ -8,15 +8,16 @@ part 'joke_list_dto.g.dart';
 @freezed
 class JokeListDto with _$JokeListDto {
   factory JokeListDto(
-      {required int current_page,
+      {@JsonKey(name: "current_page") required int currentPage,
       required int limit,
-      required int next_page,
-      required int previous_page,
-      required String search_term,
+      @JsonKey(name: "next_page") required int nextPage,
+      @JsonKey(name: "previous_page") required int previousPage,
+      @JsonKey(name: "search_term") required String searchTerm,
       required int status,
-      required int total_jokes,
-      required int total_pages,
+      @JsonKey(name: "total_jokes") required int totalJokes,
+      @JsonKey(name: "total_pages") required int totalPages,
       required List<JokeDto> results}) = _JokeListDto;
 
-  factory JokeListDto.fromJson(Map<String, dynamic> json) => _$JokeListDtoFromJson(json);
+  factory JokeListDto.fromJson(Map<String, dynamic> json) =>
+      _$JokeListDtoFromJson(json);
 }

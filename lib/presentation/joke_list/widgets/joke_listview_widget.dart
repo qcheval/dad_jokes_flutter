@@ -1,5 +1,5 @@
 import 'package:dad_jokes_flutter/application/core/model/joke_view_model.dart';
-import 'package:dad_jokes_flutter/presentation/joke_list/widgets/joke_list_element.dart';
+import 'package:dad_jokes_flutter/presentation/joke_list/widgets/joke_card.dart';
 import 'package:flutter/material.dart';
 
 class JokeListViewWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class JokeListViewWidget extends StatelessWidget {
         controller: controller,
         itemCount: list.length,
         itemBuilder: (context, index) {
-          return JokeListElement(text: list[index].text);
+          return JokeCard(joke: list[index]);
         });
   }
 }

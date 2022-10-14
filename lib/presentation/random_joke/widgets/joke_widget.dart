@@ -1,7 +1,8 @@
 import 'package:dad_jokes_flutter/application/core/model/joke_view_model.dart';
 import 'package:dad_jokes_flutter/presentation/core/widgets/custom_button.dart';
+import 'package:dad_jokes_flutter/presentation/joke_list/widgets/joke_card.dart';
+import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class JokeWidget extends StatelessWidget {
@@ -10,7 +11,8 @@ class JokeWidget extends StatelessWidget {
 
   const JokeWidget({
     Key? key,
-    required this.joke, required this.onClick,
+    required this.joke,
+    required this.onClick,
   }) : super(key: key);
 
   @override
@@ -19,11 +21,9 @@ class JokeWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(
-          child: Text(joke.text, style: GoogleFonts.lato(fontSize: 18.sp),),
-        ),
+        JokeCard(joke: joke),
         SizedBox(height: 10.h),
-        CustomButton(title: "Get Joke", onClick: onClick)
+        CustomButton(title: StringProvider.getJoke, onClick: onClick)
       ],
     );
   }
