@@ -1,8 +1,6 @@
-import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
 import 'package:dad_jokes_flutter/presentation/core/widgets/custom_button.dart';
 import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
