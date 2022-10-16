@@ -9,11 +9,11 @@ part 'home_bloc.freezed.dart';
 part 'home_event.dart';
 
 @injectable
-class HomeBloc extends Bloc<HomeEvent, UIState<TabIndex>> {
-  HomeBloc() : super(UIState.initial()) {
+class HomeBloc extends Bloc<HomeEvent, SimpleUiState<TabIndex>> {
+  HomeBloc() : super(SimpleUiState.initial()) {
     on<HomeEvent>((event, emit) async {
       event.map(onItemTaped: (onItemTaped) {
-        emit(Success(onItemTaped.index));
+        emit(SimpleSuccess(onItemTaped.index));
       });
     });
   }
