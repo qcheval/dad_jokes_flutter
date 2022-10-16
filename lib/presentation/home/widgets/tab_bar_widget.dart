@@ -14,7 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 class TabBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, UIState<TabIndex>>(
+    return BlocConsumer<HomeBloc, SimpleUiState<TabIndex>>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -52,12 +52,11 @@ class TabBarWidget extends StatelessWidget {
     context.read<HomeBloc>().add(HomeEvent.onItemTaped(TabIndex.values[index]));
   }
 
-  Widget _widgetForState(UIState state) {
+  Widget _widgetForState(SimpleUiState state) {
     return state.map(
-        success: (success) => _widgetForIndex(success.data),
-        initial: (initial) => _widgetForIndex(TabIndex.random),
-        error: (error) => _widgetForIndex(TabIndex.random),
-        loading: (loading) => _widgetForIndex(TabIndex.random));
+      success: (success) => _widgetForIndex(success.data),
+      initial: (initial) => _widgetForIndex(TabIndex.random),
+    );
   }
 
   Widget _widgetForIndex(TabIndex index) {
@@ -71,11 +70,10 @@ class TabBarWidget extends StatelessWidget {
     }
   }
 
-  int _getCurrentIndex(UIState<TabIndex> state) {
+  int _getCurrentIndex(SimpleUiState<TabIndex> state) {
     return state.map(
-        initial: (initial) => 0,
-        success: (success) => success.data.index,
-        error: (error) => 0,
-        loading: (loading) => 0);
+      initial: (initial) => TabIndex.random.index,
+      success: (success) => success.data.index,
+    );
   }
 }
