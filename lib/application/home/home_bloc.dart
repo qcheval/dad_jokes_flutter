@@ -10,7 +10,7 @@ part 'home_event.dart';
 
 @injectable
 class HomeBloc extends Bloc<HomeEvent, UIState<TabIndex>> {
-  HomeBloc() : super(UIState()) {
+  HomeBloc() : super(UIState.initial()) {
     on<HomeEvent>((event, emit) async {
       event.map(onItemTaped: (onItemTaped) {
         emit(Success(onItemTaped.index));

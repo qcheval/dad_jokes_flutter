@@ -21,7 +21,7 @@ class JokeListBloc extends Bloc<JokeListEvent, UIState<List<JokeViewModel>>> {
   List<JokeViewModel> _jokeList = [];
   int _page = -1;
 
-  JokeListBloc(this.iGetJokeList) : super(UIState()) {
+  JokeListBloc(this.iGetJokeList) : super(UIState.initial()) {
     on<JokeListEvent>((event, emit) async {
       emit(Loading());
 

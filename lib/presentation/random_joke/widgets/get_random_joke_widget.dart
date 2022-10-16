@@ -16,17 +16,11 @@ class GetRandomJokeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RandomJokeBloc, UIState<JokeViewModel>>(
       builder: (context, state) {
-        switch (state.status) {
-          case UIStatus.initial:
-            return _initWidget(context);
-          case UIStatus.success:
-            return _buildJokeWidget((state as Success<JokeViewModel>), context);
-          case UIStatus.loading:
-            return JokeLoadingWidget();
-          case UIStatus.error:
-          default:
-            return _buildError(context);
-        }
+        return state.map(
+            initial: (initial) => _initWidget(context),
+            success: (success) => _buildJokeWidget(success, context),
+            error: (error) => _buildError(context),
+            loading: (loading) => JokeLoadingWidget());
       },
       listener: (context, state) {},
     );

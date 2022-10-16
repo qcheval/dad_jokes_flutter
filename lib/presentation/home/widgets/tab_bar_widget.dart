@@ -1,6 +1,5 @@
 import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
-import 'package:dad_jokes_flutter/presentation/core/widgets/joke_loading_widget.dart';
 import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:dad_jokes_flutter/presentation/submit_joke/submit_joke_widget.dart';
 import 'package:flutter/material.dart';
@@ -54,14 +53,11 @@ class TabBarWidget extends StatelessWidget {
   }
 
   Widget _widgetForState(UIState state) {
-    switch (state.status) {
-      case UIStatus.success:
-        return _widgetForIndex((state as Success).data);
-      case UIStatus.initial:
-      case UIStatus.loading:
-      case UIStatus.error:
-        return _widgetForIndex(TabIndex.random);
-    }
+    return state.map(
+        success: (success) => _widgetForIndex(success.data),
+        initial: (initial) => _widgetForIndex(TabIndex.random),
+        error: (error) => _widgetForIndex(TabIndex.random),
+        loading: (loading) => _widgetForIndex(TabIndex.random));
   }
 
   Widget _widgetForIndex(TabIndex index) {
@@ -76,13 +72,10 @@ class TabBarWidget extends StatelessWidget {
   }
 
   int _getCurrentIndex(UIState<TabIndex> state) {
-    switch (state.status) {
-      case UIStatus.success:
-        return (state as Success<TabIndex>).data.index;
-      case UIStatus.loading:
-      case UIStatus.error:
-      case UIStatus.initial:
-        return 0;
-    }
+    return state.map(
+        initial: (initial) => 0,
+        success: (success) => success.data.index,
+        error: (error) => 0,
+        loading: (loading) => 0);
   }
 }

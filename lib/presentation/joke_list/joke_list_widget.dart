@@ -18,16 +18,11 @@ class JokeListWidget extends StatelessWidget {
       create: (BuildContext context) => getIt<JokeListBloc>(),
       child: BlocConsumer<JokeListBloc, UIState<List<JokeViewModel>>>(
         builder: (context, state) {
-          switch (state.status) {
-            case UIStatus.initial:
-              return _initWidget(context);
-            case UIStatus.loading:
-
-            case UIStatus.success:
-              return _buildStack(context, state);
-            case UIStatus.error:
-              return _showError(context);
-          }
+          return state.map(
+              initial: (initial) => _initWidget(context),
+              success: (success) => _buildStack(context, state),
+              error: (error) => _showError(context),
+              loading: (loading) => _buildStack(context, state));
         },
         listener: (context, state) {},
       ),
@@ -58,9 +53,7 @@ class JokeListWidget extends StatelessWidget {
     return Stack(
       children: [
         _buildListView(context, context.read<JokeListBloc>().jokeList),
-        Visibility(
-            child: JokeLoadingWidget(),
-            visible: state.status == UIStatus.loading)
+        Visibility(child: JokeLoadingWidget(), visible: state is Loading)
       ],
     );
   }

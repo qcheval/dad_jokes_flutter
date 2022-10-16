@@ -13,12 +13,11 @@ part 'random_joke_bloc.freezed.dart';
 
 part 'random_joke_event.dart';
 
-
 @injectable
 class RandomJokeBloc extends Bloc<RandomJokeEvent, UIState<JokeViewModel>> {
   final IGetRandomJoke iGetRandomJoke;
 
-  RandomJokeBloc(this.iGetRandomJoke) : super(UIState()) {
+  RandomJokeBloc(this.iGetRandomJoke) : super(UIState.initial()) {
     on<RandomJokeEvent>((event, emit) async {
       await event.map(onRandomJokeRequested: (onRandomJokeRequested) async {
         emit(Loading());

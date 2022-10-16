@@ -1,29 +1,15 @@
 import 'package:dad_jokes_flutter/domain/core/failure.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum UIStatus<T> { initial, success, loading, error }
+part 'ui_state.freezed.dart';
 
-class UIState<T> {
-  UIStatus status = UIStatus.initial;
-}
+@freezed
+class UIState<T> with _$UIState<T> {
+  const factory UIState.initial() = Initial;
 
-class Success<T> extends UIState<T> {
-  final T data;
+  const factory UIState.success(T data) = Success;
 
-  Success(this.data) {
-    status = UIStatus.success;
-  }
-}
+  const factory UIState.error(ValueFailure failure) = Error;
 
-class Loading<T> extends UIState<T> {
-  Loading() {
-    status = UIStatus.loading;
-  }
-}
-
-class Error<T> extends UIState<T> {
-  final ValueFailure failure;
-
-  Error(this.failure) {
-    status = UIStatus.error;
-  }
+  const factory UIState.loading() = Loading;
 }
