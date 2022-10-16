@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dad_jokes_flutter/app_router.gr.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp.router(
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        title: 'iCanHasDadJokes',
+        title: StringProvider.appName,
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
