@@ -72,7 +72,7 @@ class TabBarWidget extends StatelessWidget {
 
   int _getCurrentIndex(SimpleUiState<TabIndex> state) {
     return state.map(
-      initial: (initial) => 0,
+      initial: (initial) => TabIndex.random.index,
       success: (success) => success.data.index,
     );
   }
