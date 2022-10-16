@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dad_jokes_flutter/application/core/mapper/joke_mapper.dart';
@@ -12,23 +13,23 @@ part 'random_joke_bloc.freezed.dart';
 
 part 'random_joke_event.dart';
 
-part 'random_joke_state.dart';
 
 @injectable
-class RandomJokeBloc extends Bloc<RandomJokeEvent, RandomJokeState> {
+class RandomJokeBloc extends Bloc<RandomJokeEvent, UIState<JokeViewModel>> {
   final IGetRandomJoke iGetRandomJoke;
 
-  RandomJokeBloc(this.iGetRandomJoke) : super(RandomJokeState.initial()) {
+  RandomJokeBloc(this.iGetRandomJoke) : super(UIState()) {
     on<RandomJokeEvent>((event, emit) async {
       await event.map(onRandomJokeRequested: (onRandomJokeRequested) async {
-        emit(state.copyWith(status: RandomJokeStatus.loading));
+        emit(Loading());
 
-        Either<ValueFailure, JokeEntity> result = await iGetRandomJoke.getRandomJoke();
+        Either<ValueFailure, JokeEntity> result =
+            await iGetRandomJoke.getRandomJoke();
 
         result.fold((failure) {
-          emit(state.copyWith(status: RandomJokeStatus.error));
+          emit(Error(failure));
         }, (jokeEntity) {
-          emit(state.copyWith(status: RandomJokeStatus.success, jokeViewModel: jokeEntity.fromDomain()));
+          emit(Success(jokeEntity.fromDomain()));
         });
       });
     });

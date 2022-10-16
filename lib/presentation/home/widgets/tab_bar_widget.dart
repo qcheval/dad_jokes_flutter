@@ -1,4 +1,6 @@
+import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
+import 'package:dad_jokes_flutter/presentation/core/widgets/joke_loading_widget.dart';
 import 'package:dad_jokes_flutter/presentation/string_provider.dart';
 import 'package:dad_jokes_flutter/presentation/submit_joke/submit_joke_widget.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +15,13 @@ import 'package:google_fonts/google_fonts.dart';
 class TabBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, HomeState>(
+    return BlocConsumer<HomeBloc, UIState<TabIndex>>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              leading: Padding(padding: EdgeInsets.all(8), child: SvgPicture.asset(HomeAssetProvider.homeIconAsset)),
+              leading: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: SvgPicture.asset(HomeAssetProvider.homeIconAsset)),
               title: Text(
                 StringProvider.appName,
                 style: GoogleFonts.lato(),
@@ -32,13 +36,14 @@ class TabBarWidget extends StatelessWidget {
                       icon: Icon(Icons.format_list_bulleted),
                       label: StringProvider.jokeList),
                   BottomNavigationBarItem(
-                      icon: Icon(Icons.post_add), label: StringProvider.submitJoke)
+                      icon: Icon(Icons.post_add),
+                      label: StringProvider.submitJoke)
                 ],
                 onTap: (index) {
                   _onItemTapped(context, index);
                 },
-                currentIndex: state.index.index),
-            body: _widgetForIndex(state.index),
+                currentIndex: _getCurrentIndex(state)),
+            body: _widgetForState(state),
           );
         },
         listener: (context, state) {});
@@ -46,6 +51,17 @@ class TabBarWidget extends StatelessWidget {
 
   void _onItemTapped(BuildContext context, int index) {
     context.read<HomeBloc>().add(HomeEvent.onItemTaped(TabIndex.values[index]));
+  }
+
+  Widget _widgetForState(UIState state) {
+    switch (state.status) {
+      case UIStatus.success:
+        return _widgetForIndex((state as Success).data);
+      case UIStatus.initial:
+      case UIStatus.loading:
+      case UIStatus.error:
+        return _widgetForIndex(TabIndex.random);
+    }
   }
 
   Widget _widgetForIndex(TabIndex index) {
@@ -56,6 +72,17 @@ class TabBarWidget extends StatelessWidget {
         return JokeListWidget();
       case TabIndex.submit:
         return SubmitJokeWidget();
+    }
+  }
+
+  int _getCurrentIndex(UIState<TabIndex> state) {
+    switch (state.status) {
+      case UIStatus.success:
+        return (state as Success<TabIndex>).data.index;
+      case UIStatus.loading:
+      case UIStatus.error:
+      case UIStatus.initial:
+        return 0;
     }
   }
 }

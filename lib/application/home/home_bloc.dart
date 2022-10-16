@@ -1,3 +1,4 @@
+import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -7,14 +8,12 @@ part 'home_bloc.freezed.dart';
 
 part 'home_event.dart';
 
-part 'home_state.dart';
-
 @injectable
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeState.initial()) {
+class HomeBloc extends Bloc<HomeEvent, UIState<TabIndex>> {
+  HomeBloc() : super(UIState()) {
     on<HomeEvent>((event, emit) async {
       event.map(onItemTaped: (onItemTaped) {
-        emit(state.copyWith(status: HomeStatus.indexChanged, index: onItemTaped.index));
+        emit(Success(onItemTaped.index));
       });
     });
   }

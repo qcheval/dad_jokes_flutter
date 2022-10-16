@@ -1,13 +1,11 @@
-import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
+import 'package:dad_jokes_flutter/application/core/model/joke_view_model.dart';
+import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:dad_jokes_flutter/presentation/core/widgets/error_card_widget.dart';
 import 'package:dad_jokes_flutter/presentation/core/widgets/joke_loading_widget.dart';
 import 'package:dad_jokes_flutter/presentation/random_joke/widgets/joke_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dad_jokes_flutter/application/random_joke/random_joke_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GetRandomJokeWidget extends StatelessWidget {
   const GetRandomJokeWidget({
@@ -16,16 +14,16 @@ class GetRandomJokeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RandomJokeBloc, RandomJokeState>(
+    return BlocConsumer<RandomJokeBloc, UIState<JokeViewModel>>(
       builder: (context, state) {
         switch (state.status) {
-          case RandomJokeStatus.initial:
+          case UIStatus.initial:
             return _initWidget(context);
-          case RandomJokeStatus.success:
-            return _buildJokeWidget(state, context);
-          case RandomJokeStatus.loading:
+          case UIStatus.success:
+            return _buildJokeWidget((state as Success<JokeViewModel>), context);
+          case UIStatus.loading:
             return JokeLoadingWidget();
-          case RandomJokeStatus.error:
+          case UIStatus.error:
           default:
             return _buildError(context);
         }
@@ -39,25 +37,27 @@ class GetRandomJokeWidget extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(16, 32, 16, 32),
         child: ErrorCardWidget(
           retry: () {
-            context
-                .read<RandomJokeBloc>()
-                .add(const RandomJokeEvent.onRandomJokeRequested());
+            _requestJoke(context);
           },
         ));
   }
 
-  Widget _buildJokeWidget(RandomJokeState state, BuildContext context) {
+  Widget _buildJokeWidget(Success<JokeViewModel> state, BuildContext context) {
     return JokeWidget(
-        joke: state.jokeViewModel!,
+        joke: state.data,
         onClick: () {
-          context
-              .read<RandomJokeBloc>()
-              .add(const RandomJokeEvent.onRandomJokeRequested());
+          _requestJoke(context);
         });
   }
 
   Widget _initWidget(BuildContext context) {
-    context.read<RandomJokeBloc>().add(const RandomJokeEvent.onRandomJokeRequested());
+    _requestJoke(context);
     return JokeLoadingWidget();
+  }
+
+  void _requestJoke(BuildContext context) {
+    context
+        .read<RandomJokeBloc>()
+        .add(const RandomJokeEvent.onRandomJokeRequested());
   }
 }
