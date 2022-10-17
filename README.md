@@ -16,3 +16,55 @@ The logo is by Original by [User:East718](https://en.wikipedia.org/wiki/User:Use
 This project aims to implement a simple, yet clear, example of BLoc/Clean architecture using flutter
 
 This implementation *is not the truth*. It is only my vision of clean architecture using BLoc. Feel free to comment, enhance and make this code better.
+
+
+# PROJECT ARCHITECTURE
+
+## PRESENTATION LAYER
+
+### PURPOSE
+
+### WIDGETS AND SUBWIDGETS
+
+
+## APPLICATION LAYER
+
+### PURPOSE
+
+
+### BLOCS
+
+### EVENTS
+
+### STATES
+
+### VIEWMODEL
+
+### MAPPERS
+	
+
+## DOMAIN LAYER
+
+### PURPOSE
+
+
+### ENTITIES
+
+### FAILURES
+
+### REPOSITORIES INTERFACES
+
+	
+
+## DATA LAYER
+
+### PURPOSE
+
+
+### REPOSITORY IMPLEMENTATION
+
+### DATASOURCES
+
+### DTO
+
+### MAPPER
