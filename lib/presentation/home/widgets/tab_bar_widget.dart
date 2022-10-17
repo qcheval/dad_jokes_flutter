@@ -1,6 +1,6 @@
 import 'package:dad_jokes_flutter/application/core/ui_state.dart';
 import 'package:dad_jokes_flutter/presentation/core/asset_provider.dart';
-import 'package:dad_jokes_flutter/presentation/string_provider.dart';
+import 'package:dad_jokes_flutter/presentation/core/string_provider.dart';
 import 'package:dad_jokes_flutter/presentation/submit_joke/submit_joke_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

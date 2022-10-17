@@ -1,4 +1,4 @@
-import 'package:dad_jokes_flutter/presentation/string_provider.dart';
+import 'package:dad_jokes_flutter/presentation/core/string_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

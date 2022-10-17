@@ -1,5 +1,5 @@
 import 'package:dad_jokes_flutter/application/core/model/joke_view_model.dart';
-import 'package:dad_jokes_flutter/presentation/string_provider.dart';
+import 'package:dad_jokes_flutter/presentation/core/string_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
