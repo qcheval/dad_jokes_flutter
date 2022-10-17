@@ -7,8 +7,8 @@ class JokeLoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 50.w,
-        height: 50.w,
+        width: 50.dp,
+        height: 50.dp,
         child: Container(
           decoration: BoxDecoration(
               boxShadow: [

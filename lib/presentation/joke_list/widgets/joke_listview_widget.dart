@@ -1,5 +1,5 @@
 import 'package:dad_jokes_flutter/application/core/model/joke_view_model.dart';
-import 'package:dad_jokes_flutter/presentation/joke_list/widgets/joke_card.dart';
+import 'package:dad_jokes_flutter/presentation/core/widgets/joke_card.dart';
 import 'package:flutter/material.dart';
 
 class JokeListViewWidget extends StatelessWidget {
@@ -14,7 +14,10 @@ class JokeListViewWidget extends StatelessWidget {
         controller: controller,
         itemCount: list.length,
         itemBuilder: (context, index) {
-          return JokeCard(joke: list[index]);
+          return Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+            child: JokeCard(joke: list[index]),
+          );
         });
   }
 }
