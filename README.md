@@ -31,26 +31,26 @@ Presentation layer is composed of a few but important elements detailed below :
 
 ### WIDGETS AND SUBWIDGETS
 
-Widgets are the core of this layer. They organize the user interface. Connected to a bloc, wich manage their state, they can update the interface depending of which state is consumed.
-Every user action will trigger an event, sent to the bloc.
+Widgets are the core of this layer. They organize the user interface. Connected to a **bloc**, wich manage their **state**, they can update the interface depending on which **state** is consumed.
+Every user action will trigger an **event**, sent to the **bloc**.
 
-Two main types of widgets are used in this layer. This type will induce if a bloc is needed : 
+Two main types of widgets are used in this layer. This type will induce if a **bloc** is needed : 
 
 - Stateful Widget
-	A stateful widget manages its state itself, therefore, no bloc is needed. Be careful when using such a widget as the business logic might be integrated in the presentation layer. There is only a few reasons to use stateful widgets, such as the need of animation controller for example. Try to simplify as much as possible this widget, to be able to use stateless widgets as children and prevent wrong dependencies between layers.
+	A stateful widget manages its state itself, therefore, no **bloc** is needed. Be careful when using such a widget as the business logic might be integrated in the presentation layer. There is only a few reasons to use stateful widgets, such as the need of animation controller for example. Try to simplify as much as possible this widget, to be able to use stateless widgets as children and prevent wrong dependencies between layers.
 
 - Stateless Widget
-	The main goal of bloc is to extract state management in another layer, giving the developer more freedom concerning unit testing, readability and code maintenance. As started before, this allows to write the dumbest widget possible, reducing the chances of bugs and regression to a minimum. Also, it is important to thin the widgets to the minimal usage. What it means is, for example, if you have to implement a ListView, try to declare a stateless widget for your ListView and its builder, then another class for each different item that might be displayed in this list. Furthermore, if these items contain a complex widget, extract it to another class. The smaller, the better.
+	The main goal of **bloc** is to extract state management in another layer, giving the developer more freedom concerning unit testing, readability and code maintenance. As stated before, this allows to write the dumbest widget possible, reducing the chances of bugs and regression to a minimum. Also, it is important to thin the widgets to the minimal usage. What this means is, for example, if you have to implement a ListView, try to declare a stateless widget for your ListView and its builder, then another class for each different item that might be displayed in this list. Furthermore, if these items contain a complex widget, extract it to another class. The smaller, the better.
 
 	A good practice would be to create your folder tree as below : 
 
-	- presentation
-		+ core
-			* common_widgets // all the small widgets you might use everywhere, such as custom buttons
-			* providers // why not a asset_provider class to get all the assets ? Same thing for strings
-		+ feature_a
-			* widgets // all the small widgets used only for this feature
-			* feature_a_widget.dart // your main widget for this feature. A scaffold for example?
+	- **presentation**
+		+ **core**
+			* **common_widgets** // all the small widgets you might use everywhere, such as custom buttons
+			* **providers** // why not a asset_provider class to get all the assets ? Same thing for strings
+		+ **feature_a**
+			* **widgets** // all the small widgets used only for this feature
+			* **feature_a_widget.dart** // your main widget for this feature. A scaffold for example?
 
 
 ## APPLICATION LAYER
