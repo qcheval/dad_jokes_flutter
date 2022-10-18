@@ -125,7 +125,7 @@ class JokeCard extends StatelessWidget {
 
 // Etc for CustomButton...
 ```
-Once a again, try to keep in mind : **KISS** and **DRY**.
+Once and again, try to keep in mind : **KISS** and **DRY**.
 
 
 ### Folder Tree
