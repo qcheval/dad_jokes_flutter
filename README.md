@@ -52,8 +52,44 @@ Two main types of widgets are used in this layer. This type will induce if a **b
 			* **widgets** // all the small widgets used only for this feature
 			* **feature_a_widget.dart** // your main widget for this feature. A scaffold for example?
 
+While it is recommanded not to use any **if** statement, we need a method to define our UI with our state. An interesting method, allowed by the usage of **freezed** in the state class definition, is to use map.
+For exemple, on a state change received by the widget, we can write : 
+
+```dart
+state.map(
+	initial: (initial) => _doSomethingInit(),
+	success: (success) => _buildTheSuccessWidget(),
+	error: (error) => _showAnError(),
+	loading: (loading) => _showALoader());
+```
+This syntax allows readability and simple comprehension of the bloc logic. Each map element maps to a state in the class declaration detailed in the **application layer** section (see below). 
+
+
+Concerning the events, and assuming that your top widget provides you a context containing the right bloc, you can declare an event this way : 
+
+```dart
+context // my BuildContext
+        .read<DoSomethingBloc> // reference to bloc
+        .add(const DosomethingBloc.myEvent());
+```
+
 
 ## APPLICATION LAYER
+
+
+
+```dart
+@freezed
+class UIState<T> with _$UIState<T> {
+  const factory UIState.initial() = Initial;
+
+  const factory UIState.success(T data) = Success;
+
+  const factory UIState.error(ValueFailure failure) = Error;
+
+  const factory UIState.loading() = Loading;
+}
+```
 
 ### PURPOSE
 
