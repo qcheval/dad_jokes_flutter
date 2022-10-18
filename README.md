@@ -171,11 +171,30 @@ BLoc stands for Business Logic. As stated on the [developer's page](https://bloc
 
 Application layer's role is to consume presentation layer events, call domain layer's repositories interfaces if necessary and apply Business Rules before emitting a state accordingly. 
 
-### BLOCS
-
 ### EVENTS
 
+Using **freezed**, it is quite easy to list all the possible events the presentation layer may send. Here is a simple example : 
+
+```dart
+@freezed
+class ExampleEvent with _$ExampleEvent {
+  const factory ExampleEvent.onSubmit() = OnSubmit; // An event without parameters
+  const factory ExampleEvent.onSearch(SearchParameters searchParameters) = OnSearch; // An event with parameters
+}
+```
+
+To make your events really explicit, remember to never pass simple types as parameters (int, double, String, etc...). It may take a little more time to implement a parameter class, but your fellow developers will thank you later.
+
 ### STATES
+
+Remember the **DRY** concept? Don't repeat yourself. By respect to this statement, I decided to implement a single State class for this app. It accepts any type as *data* and can be used in any BLoc as long at it respects the following logic : 
+
+- Initialisation State : the widget needs to be initialised
+- Loading State : the widget sent an event and the preparation of the data may take a while
+- Success State : data is ready to be displayed
+- Error State : Something wen't wrong when loading the data
+
+When declaring your Bloc, simply use UIState<MyType> to use this class. 
 
 ```dart
 @freezed
@@ -190,6 +209,34 @@ class UIState<T> with _$UIState<T> {
 }
 ```
 
+### BLOCS
+
+Here is the core of this layer. Consuming events and emitting state being the main role of the BloC, it also is allowed to apply business rules to our data. Most of your if/else statements will be written in this layer.
+
+First of all, how to read an event?
+Events will be mapped, just as states are mapped in the presentation layer. (thanks again, freezed)
+
+Let's reuse the ExampleEvent declared before : 
+
+```dart
+MyBloc() : super(UIState.initial()) {
+	on<ExampleEvent>((event, emit) async {
+		await event.map(
+			onSubmit: (_) async { // no parameters for this event -> _
+				emit(Loading());
+				// call repository to submit something
+				emit(Success(someData));
+			}, 
+			onSearch: (onSearchEvent) async { // this event contains parameters
+				emit(Loading());
+				// call repository to submit something
+				// You can use parameters with : onSearchEvent.searchParams
+				emit(Success(someData));
+			});
+	}
+}
+  
+```
 
 ### VIEWMODEL
 
