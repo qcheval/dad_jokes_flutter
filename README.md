@@ -164,7 +164,18 @@ context // my BuildContext
 
 ## APPLICATION LAYER
 
+### PURPOSE
 
+BLoc stands for Business Logic. As stated on the [developer's page](https://bloclibrary.dev/#/whybloc) : 
+**Bloc makes it easy to separate presentation from business logic, making your code fast, easy to test, and reusable.**
+
+Application layer's role is to consume presentation layer events, call domain layer's repositories interfaces if necessary and apply Business Rules before emitting a state accordingly. 
+
+### BLOCS
+
+### EVENTS
+
+### STATES
 
 ```dart
 @freezed
@@ -179,14 +190,6 @@ class UIState<T> with _$UIState<T> {
 }
 ```
 
-### PURPOSE
-
-
-### BLOCS
-
-### EVENTS
-
-### STATES
 
 ### VIEWMODEL
 
