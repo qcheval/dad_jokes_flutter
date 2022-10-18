@@ -27,11 +27,9 @@ This implementation *is not the truth*. It is only my vision of clean architectu
 Presentation layer has for sole goal to display data, consume **domain layer** states and produce events when instructed by the user.
 It must be as dumb as can be. One good rule of thumb is "if there is a **if** statement in this layer, there must be an issue". **If** statements imply business intelligence and therefore should only appear in deeper layers, such as **domain**
 
-Presentation layer is composed of a few but important elements detailed below :
+### Widgets
 
-### WIDGETS AND SUBWIDGETS
-
-Widgets are the core of this layer. They organize the user interface. Connected to a **bloc**, wich manage their **state**, they can update the interface depending on which **state** is consumed.
+Widgets are the core of this layer. They organize the user interface. Connected to a **bloc**, which manage their **state**, they can update the user interface depending on which **state** is consumed.
 Every user action will trigger an **event**, sent to the **bloc**.
 
 Two main types of widgets are used in this layer. This type will induce if a **bloc** is needed : 
@@ -42,15 +40,105 @@ Two main types of widgets are used in this layer. This type will induce if a **b
 - Stateless Widget
 	The main goal of **bloc** is to extract state management in another layer, giving the developer more freedom concerning unit testing, readability and code maintenance. As stated before, this allows to write the dumbest widget possible, reducing the chances of bugs and regression to a minimum. Also, it is important to thin the widgets to the minimal usage. What this means is, for example, if you have to implement a ListView, try to declare a stateless widget for your ListView and its builder, then another class for each different item that might be displayed in this list. Furthermore, if these items contain a complex widget, extract it to another class. The smaller, the better.
 
-	A good practice would be to create your folder tree as below : 
+For example, given this widget taken straight from this project : 
 
-	- **presentation**
-		+ **core**
-			* **common_widgets** // all the small widgets you might use everywhere, such as custom buttons
-			* **providers** // why not a asset_provider class to get all the assets ? Same thing for strings
-		+ **feature_a**
-			* **widgets** // all the small widgets used only for this feature
-			* **feature_a_widget.dart** // your main widget for this feature. A scaffold for example?
+```dart
+Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          elevation: 3,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  joke.text,
+                  style: GoogleFonts.lato(fontSize: 18.sp),
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                  child: Divider(thickness: 1)),
+              Padding(
+                  padding: EdgeInsets.all(16),
+                  child: TextButton(
+                    onPressed: () async {
+                      await Share.share("${StringProvider.shareUrl}${joke.id}");
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.share),
+                        SizedBox(width: 16),
+                        Text(StringProvider.share)
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ),
+        SizedBox(height: 10.h),
+        TextButton(
+          style: TextButton.styleFrom(
+              minimumSize: Size(90.w, 8.h),
+              backgroundColor: Colors.green,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(buttonRadius))),
+          onPressed: onClick,
+          child: Text(
+            title,
+            style: GoogleFonts.lato(
+                color: Colors.white, fontSize: buttonFontSize.sp),
+          ),
+        )
+      ],
+    );
+```
+
+It is far more clearer to write : 
+
+```dart
+Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        JokeCard(joke: joke),
+        SizedBox(height: 10.h),
+        CustomButton(title: StringProvider.getJoke, onClick: onClick)
+      ],
+    );
+    
+class JokeCard extends StatelessWidget {
+  final JokeViewModel joke;
+
+  const JokeCard({super.key, required this.joke});
+  
+  @override
+  Widget build(BuildContext context) {
+  // build your widget 
+  }
+}
+
+// Etc for CustomButton...
+```
+Once a again, try to keep in mind : **KISS** and **DRY**.
+
+
+### Folder Tree
+
+A good practice would be to create your folder tree as below : 
+
+- **presentation**
+	+ **core**
+		* **common_widgets** // all the small widgets you might use everywhere, such as custom buttons
+		* **providers** // why not a asset_provider class to get all the assets ? Same thing for strings
+	+ **feature_a**
+		* **widgets** // all the small widgets used only for this feature
+		* **feature_a_widget.dart** // your main widget for this feature. A scaffold for example?
 
 While it is recommanded not to use any **if** statement, we need a method to define our UI with our state. An interesting method, allowed by the usage of **freezed** in the state class definition, is to use map.
 For exemple, on a state change received by the widget, we can write : 
