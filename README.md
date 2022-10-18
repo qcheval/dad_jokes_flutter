@@ -158,7 +158,7 @@ Concerning the events, and assuming that your top widget provides you a context 
 ```dart
 context // my BuildContext
         .read<DoSomethingBloc> // reference to bloc
-        .add(const DosomethingBloc.myEvent());
+        .add(const DosomethingBloc.myEvent()); // the event sent by the user interface
 ```
 
 
