@@ -238,17 +238,8 @@ MyBloc() : super(UIState.initial()) {
   
 ```
 
-### VIEWMODEL
+### MODELS
 
-### MAPPERS
-	
-
-## DOMAIN LAYER
-
-### PURPOSE
-
-
-### ENTITIES
 
 ### FAILURES
 
