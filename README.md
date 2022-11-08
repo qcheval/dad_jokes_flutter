@@ -3,7 +3,7 @@
 ## Let's read some dad jokes
 
 
-![Project Icon](./assets/images/smile.png)
+![Project Icon](./dadjokes/assets/images/smile.png)
 
 
 This project uses the open API [ICanHasDadJokes](https://icanhazdadjoke.com/api#search-for-dad-jokes) written and is maintained by Brett Langdon.
