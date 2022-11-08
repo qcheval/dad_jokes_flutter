@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.qpc.dad_jokes_flutter.app-mergeDebugResources-11:/values-nb/values-nb.xml",
+            "map": [
+                {
+                    "source": "/home/quentin/.gradle/caches/transforms-3/74ce2690f7529852b8321388684fcbb6/transformed/core-1.7.0/res/values-nb/values-nb.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

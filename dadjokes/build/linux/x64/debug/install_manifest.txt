@@ -1,0 +1,14 @@
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/dadjokes
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/assets/animations/error_animation.json
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/smile.svg
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z

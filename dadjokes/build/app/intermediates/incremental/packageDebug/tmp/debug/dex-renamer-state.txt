@@ -1,0 +1,4 @@
+#Tue Nov 08 14:59:22 CET 2022
+base.0=/home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

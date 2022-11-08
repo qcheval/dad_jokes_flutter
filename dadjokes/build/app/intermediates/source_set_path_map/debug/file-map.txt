@@ -1,0 +1,17 @@
+com.qpc.dad_jokes_flutter.app-jetified-window-java-1.0.0-beta04-0 /home/quentin/.gradle/caches/transforms-3/006d93cd422dbc43e89591147c2de572/transformed/jetified-window-java-1.0.0-beta04/res
+com.qpc.dad_jokes_flutter.app-jetified-core-ktx-1.7.0-1 /home/quentin/.gradle/caches/transforms-3/7170b244a5b4363d7f01aecf75ee8cbf/transformed/jetified-core-ktx-1.7.0/res
+com.qpc.dad_jokes_flutter.app-core-1.7.0-2 /home/quentin/.gradle/caches/transforms-3/74ce2690f7529852b8321388684fcbb6/transformed/core-1.7.0/res
+com.qpc.dad_jokes_flutter.app-lifecycle-runtime-2.3.1-3 /home/quentin/.gradle/caches/transforms-3/76da31ad033c53187dd7271282d0f7d2/transformed/lifecycle-runtime-2.3.1/res
+com.qpc.dad_jokes_flutter.app-jetified-annotation-experimental-1.1.0-4 /home/quentin/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
+com.qpc.dad_jokes_flutter.app-jetified-window-1.0.0-beta04-5 /home/quentin/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
+com.qpc.dad_jokes_flutter.app-debug-6 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/android/app/src/debug/res
+com.qpc.dad_jokes_flutter.app-main-7 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/android/app/src/main/res
+com.qpc.dad_jokes_flutter.app-pngs-8 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/generated/res/pngs/debug
+com.qpc.dad_jokes_flutter.app-resValues-9 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/generated/res/resValues/debug
+com.qpc.dad_jokes_flutter.app-rs-10 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/generated/res/rs/debug
+com.qpc.dad_jokes_flutter.app-mergeDebugResources-11 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.qpc.dad_jokes_flutter.app-mergeDebugResources-12 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.qpc.dad_jokes_flutter.app-merged_res-13 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/app/intermediates/merged_res/debug
+com.qpc.dad_jokes_flutter.app-packaged_res-14 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/path_provider_android/intermediates/packaged_res/debug
+com.qpc.dad_jokes_flutter.app-packaged_res-15 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/share_plus/intermediates/packaged_res/debug
+com.qpc.dad_jokes_flutter.app-packaged_res-16 /home/quentin/StudioProjects/dad_jokes_flutter/dadjokes/build/url_launcher_android/intermediates/packaged_res/debug

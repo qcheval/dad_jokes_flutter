@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-anydpi-v21_ic_smile.xml.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-anydpi-v21/ic_smile.xml"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-xhdpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-xhdpi/ic_smile.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-ldpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-ldpi/ic_smile.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-v21_launch_background.xml.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-mdpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-mdpi/ic_smile.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-xxhdpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-xxhdpi/ic_smile.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-xxxhdpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-xxxhdpi/ic_smile.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable_launch_background.xml.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/drawable/launch_background.xml"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-main-7:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.qpc.dad_jokes_flutter.app-merged_res-13:/drawable-hdpi_ic_smile.png.flat",
+        "source": "com.qpc.dad_jokes_flutter.app-pngs-8:/drawable-hdpi/ic_smile.png"
+    }
+]
