@@ -113,7 +113,7 @@ Column(
     );
     
 class JokeCard extends StatelessWidget {
-  final JokeViewModel joke;
+  final JokeEntity joke;
 
   const JokeCard({super.key, required this.joke});
   
